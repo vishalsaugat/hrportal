@@ -25,23 +25,16 @@ $cakeDescription = 'HR Portal';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon','/img/favicon.png') ?>
-    <?= $this->Html->css('common.css') ?>
     <?= $this->Html->css('https://fonts.googleapis.com/icon?family=Material+Icons') ?>
     <?= $this->Html->css('material.min.css') ?>
+    <?= $this->Html->css('common.css') ?>
     <?= $this->Html->script('material.min.js') ?>
-    <?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-
-        <div class="page-content1"><?= $this->fetch('content') ?></div>
-
+<?= $this->fetch('content') ?>
 </body>
-<script>
-    $(".desc").parent().addClass('mdl-data-table__header--sorted-descending');
-    $(".asc").parent().addClass('mdl-data-table__header--sorted-ascending');
-</script>
 </html>

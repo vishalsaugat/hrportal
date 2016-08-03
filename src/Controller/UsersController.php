@@ -16,15 +16,22 @@ class UsersController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
-    public function index()
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('RequestHandler');
+    }
+
+    public function index($id=null)
     {
         $this->paginate = [
-            'contain' => ['Cities', 'Offices', 'Departments', 'Designations','ReportingUsers']
+            'contain' => ['Cities', 'Offices', 'Departments', 'Designations','ReportingUsers'],
+            'limit' =>2
         ];
         $users = $this->paginate($this->Users);
-
-        $this->set(compact('users'));
-        $this->set('_serialize', ['users']);
+        $getparams = $this->request->query;
+        $this->set(compact('users','getparams'));
+        $this->set('_serialize', ['users','getparams']);
     }
 
     /**
@@ -134,5 +141,15 @@ class UsersController extends AppController
             }
             $this->Flash->error('Your username or password is incorrect.');
         }
+        if ($this->Auth->user()){
+            pr($this->Auth->user());
+            return $this->redirect($this->Auth->redirectUrl());
+        }
+        $this->viewBuilder()->layout('blank');
+    }
+
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
     }
 }

@@ -1,5 +1,5 @@
 <?php
-$class = 'message';
+$class = 'message typo-styles__demo mdl-typography--headline';
 if (!empty($params['class'])) {
     $class .= ' ' . $params['class'];
 }

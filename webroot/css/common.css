@@ -1,0 +1,30 @@
+.mdl-button--full{
+    width: 100%;
+}
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+.page-content{
+    padding: 15px;
+}
+.pagination li{
+    display:inline-block;
+}
+.pagination .prev{
+    margin-right: 50px;
+}
+.pagination .next{
+    margin-left: 50px;
+}
+.mdl-layout__content{
+    padding: 15px;
+}
+.vertical-align-middle{
+    vertical-align: middle;
+}
+.actions a{
+    color:#a59ea0;
+}
