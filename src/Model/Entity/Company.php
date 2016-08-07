@@ -4,19 +4,27 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * City Entity
+ * Company Entity
  *
  * @property int $id
  * @property string $name
+ * @property string $unique_link
+ * @property int $city_id
  * @property int $status
+ * @property string $image_link
  * @property \Cake\I18n\Time $created_at
  * @property \Cake\I18n\Time $updated_at
  *
- * @property \App\Model\Entity\Company[] $companies
+ * @property \App\Model\Entity\City $city
+ * @property \App\Model\Entity\Attendance[] $attendances
+ * @property \App\Model\Entity\Event[] $events
+ * @property \App\Model\Entity\Inventory[] $inventories
+ * @property \App\Model\Entity\Notification[] $notifications
  * @property \App\Model\Entity\Office[] $offices
+ * @property \App\Model\Entity\Policy[] $policies
  * @property \App\Model\Entity\User[] $users
  */
-class City extends Entity
+class Company extends Entity
 {
 
     /**

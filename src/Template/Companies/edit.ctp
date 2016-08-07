@@ -22,7 +22,7 @@ $this->Paginator->templates($myTemplates);
  <header class="mdl-layout__header">
   <div class="mdl-layout__header-row">
    <!-- Title -->
-   <span class="mdl-layout-title">Office</span>
+   <span class="mdl-layout-title">Company</span>
    <!-- Add spacer, to align navigation to the right -->
    <div class="mdl-layout-spacer"></div>
    <!-- Navigation. We hide it in small screens. -->
@@ -60,26 +60,39 @@ $this->Paginator->templates($myTemplates);
   </header>
   <nav class="mdl-navigation">
    <?= $this->Html->link(__('Dashboard'), ['controller'=>'users','action' => 'dashboard'],['class'=>'mdl-navigation__link']) ?>
-   <?= $this->Html->link(__(' List Offices'), ['action' => 'index'],['class'=>'mdl-navigation__link']) ?>
-   <?= $this->Html->link(__(' Add Offices'), ['action' => 'add'],['class'=>'mdl-navigation__link']) ?>
+   <?= $this->Html->link(__(' List Companies'), ['action' => 'index'],['class'=>'mdl-navigation__link']) ?>
+   <?= $this->Html->link(__(' Add Companies'), ['action' => 'add'],['class'=>'mdl-navigation__link']) ?>
       <?= $this->Html->link(__('List Cities'), ['controller' => 'Cities', 'action' => 'index'],['class'=>'mdl-navigation__link']) ?>
         <?= $this->Html->link(__('New City'), ['controller' => 'Cities', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
+      <?= $this->Html->link(__('List Attendances'), ['controller' => 'Attendances', 'action' => 'index'],['class'=>'mdl-navigation__link']) ?>
+        <?= $this->Html->link(__('New Attendance'), ['controller' => 'Attendances', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
+      <?= $this->Html->link(__('List Events'), ['controller' => 'Events', 'action' => 'index'],['class'=>'mdl-navigation__link']) ?>
+        <?= $this->Html->link(__('New Event'), ['controller' => 'Events', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
+      <?= $this->Html->link(__('List Inventories'), ['controller' => 'Inventories', 'action' => 'index'],['class'=>'mdl-navigation__link']) ?>
+        <?= $this->Html->link(__('New Inventory'), ['controller' => 'Inventories', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
+      <?= $this->Html->link(__('List Notifications'), ['controller' => 'Notifications', 'action' => 'index'],['class'=>'mdl-navigation__link']) ?>
+        <?= $this->Html->link(__('New Notification'), ['controller' => 'Notifications', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
+      <?= $this->Html->link(__('List Offices'), ['controller' => 'Offices', 'action' => 'index'],['class'=>'mdl-navigation__link']) ?>
+        <?= $this->Html->link(__('New Office'), ['controller' => 'Offices', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
+      <?= $this->Html->link(__('List Policies'), ['controller' => 'Policies', 'action' => 'index'],['class'=>'mdl-navigation__link']) ?>
+        <?= $this->Html->link(__('New Policy'), ['controller' => 'Policies', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
       <?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index'],['class'=>'mdl-navigation__link']) ?>
         <?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
      </nav>
  </div>
  <main class="mdl-layout__content">
-  <div class="offices index large-9 medium-8 columns content">
+  <div class="companies index large-9 medium-8 columns content">
    <main class="mdl-layout__content">
-<div class="offices form large-9 medium-8 columns content">
-    <span class="mdl-layout-title"><?= __('Edit Office') ?><span/>
-    <?= $this->Form->create($office) ?>
+<div class="companies form large-9 medium-8 columns content">
+    <span class="mdl-layout-title"><?= __('Edit Company') ?><span/>
+    <?= $this->Form->create($company) ?>
     <div class="mdl-grid">
         <?php
             echo $this->Form->input('name');
+            echo $this->Form->input('unique_link');
             echo $this->Form->input('city_id', ['options' => $cities, 'empty' => true]);
             echo $this->Form->input('status');
-            echo $this->Form->input('company_id');
+            echo $this->Form->input('image_link');
         ?>
     </div>
     <?= $this->Form->button(__('Submit'),['class'=>'mdl-button mdl-js-button mdl-button--raised mdl-button--colored']) ?>

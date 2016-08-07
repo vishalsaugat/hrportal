@@ -9,6 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Cities Model
  *
+ * @property \Cake\ORM\Association\HasMany $Companies
  * @property \Cake\ORM\Association\HasMany $Offices
  * @property \Cake\ORM\Association\HasMany $Users
  *
@@ -37,6 +38,9 @@ class CitiesTable extends Table
         $this->displayField('name');
         $this->primaryKey('id');
 
+        $this->hasMany('Companies', [
+            'foreignKey' => 'city_id'
+        ]);
         $this->hasMany('Offices', [
             'foreignKey' => 'city_id'
         ]);

@@ -28,3 +28,97 @@ a{
 .actions a{
     color:#a59ea0;
 }
+.page-content1 .mdl-layout__content{
+    overflow-x: auto;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+.field-name{
+    background-color: #4CAF50;
+    color: white;
+}
+.demo-drawer-header {
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 16px;
+    height: 151px;
+    background: #F50057;
+    color: white;
+}
+
+.demo-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+}
+
+.demo-avatar-dropdown {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+}
+.success {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+.error {
+    text-align: center;
+    background-color: #E64A19;
+    color: white;
+}
+
+.mdl-layout__header-dashboard{
+    background-color: #263238 !important;
+}
+
+.mdl-tabs__tab-bar-vertical{
+    background-color: #e0e0e0;
+}
+.mdl-tabs__tab-bar-vertical .mdl-tabs__tab{
+    height: 65px;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.mdl-tabs__tab-bar-vertical .mdl-tabs__tab:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.mdl-tabs__tab-bar-vertical .mdl-tabs__tab.is-active:after {
+    background: transparent !important;
+}
+.mdl-tabs__tab-bar-vertical .mdl-tabs__tab.is-active {
+    background-color: white !important;
+}
+.mdl-tabs__tab-bar-vertical .material-icons{
+    font-size: 40px;
+}
+
+.mdl-tabs__tab-bar-vertical .mdl-typography--caption{
+    line-height: 0;
+    font-size: 10px;
+}
+.mdl-cell--1-col-modified{
+    width: 6.5%;
+    min-width: 50px;
+}
+.mdl-cell--11-col-modified{
+    width: 93.5%;
+}

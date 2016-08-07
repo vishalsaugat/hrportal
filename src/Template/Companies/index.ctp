@@ -22,7 +22,7 @@ $this->Paginator->templates($myTemplates);
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
             <!-- Title -->
-            <span class="mdl-layout-title">Office</span>
+            <span class="mdl-layout-title">Company</span>
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
@@ -60,43 +60,57 @@ $this->Paginator->templates($myTemplates);
         </header>
         <nav class="mdl-navigation">
             <?= $this->Html->link(__('Dashboard'), ['controller'=>'users','action' => 'dashboard'],['class'=>'mdl-navigation__link']) ?>
-            <?= $this->Html->link(__(' List Offices'), ['action' => 'index'],['class'=>'mdl-navigation__link']) ?>
-            <?= $this->Html->link(__(' Add Offices'), ['action' => 'add'],['class'=>'mdl-navigation__link']) ?>
+            <?= $this->Html->link(__(' List Companies'), ['action' => 'index'],['class'=>'mdl-navigation__link']) ?>
+            <?= $this->Html->link(__(' Add Companies'), ['action' => 'add'],['class'=>'mdl-navigation__link']) ?>
                         <?= $this->Html->link(__('List Cities'), ['controller' => 'Cities', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
         <?= $this->Html->link(__('New City'), ['controller' => 'Cities', 'action' => 'add'],['class'=>'mdl-navigation__link']); ?>
+                        <?= $this->Html->link(__('List Attendances'), ['controller' => 'Attendances', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
+        <?= $this->Html->link(__('New Attendance'), ['controller' => 'Attendances', 'action' => 'add'],['class'=>'mdl-navigation__link']); ?>
+                        <?= $this->Html->link(__('List Events'), ['controller' => 'Events', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
+        <?= $this->Html->link(__('New Event'), ['controller' => 'Events', 'action' => 'add'],['class'=>'mdl-navigation__link']); ?>
+                        <?= $this->Html->link(__('List Inventories'), ['controller' => 'Inventories', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
+        <?= $this->Html->link(__('New Inventory'), ['controller' => 'Inventories', 'action' => 'add'],['class'=>'mdl-navigation__link']); ?>
+                        <?= $this->Html->link(__('List Notifications'), ['controller' => 'Notifications', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
+        <?= $this->Html->link(__('New Notification'), ['controller' => 'Notifications', 'action' => 'add'],['class'=>'mdl-navigation__link']); ?>
+                        <?= $this->Html->link(__('List Offices'), ['controller' => 'Offices', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
+        <?= $this->Html->link(__('New Office'), ['controller' => 'Offices', 'action' => 'add'],['class'=>'mdl-navigation__link']); ?>
+                        <?= $this->Html->link(__('List Policies'), ['controller' => 'Policies', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
+        <?= $this->Html->link(__('New Policy'), ['controller' => 'Policies', 'action' => 'add'],['class'=>'mdl-navigation__link']); ?>
                         <?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
         <?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add'],['class'=>'mdl-navigation__link']); ?>
                     </nav>
     </div>
     <main class="mdl-layout__content">
-            <div class="offices index large-9 medium-8 columns content">
+            <div class="companies index large-9 medium-8 columns content">
                 <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                     <thead>
                         <tr>
                                         <th><?= $this->Paginator->sort('id') ?></th>
                                         <th><?= $this->Paginator->sort('name') ?></th>
+                                        <th><?= $this->Paginator->sort('unique_link') ?></th>
                                         <th><?= $this->Paginator->sort('city_id') ?></th>
                                         <th><?= $this->Paginator->sort('status') ?></th>
+                                        <th><?= $this->Paginator->sort('image_link') ?></th>
                                         <th><?= $this->Paginator->sort('created_at') ?></th>
                                         <th><?= $this->Paginator->sort('updated_at') ?></th>
-                                        <th><?= $this->Paginator->sort('company_id') ?></th>
                                         <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($offices as $office): ?>
+                        <?php foreach ($companies as $company): ?>
                         <tr>
-                                        <td><?= $this->Number->format($office->id) ?></td>
-                                        <td><?= h($office->name) ?></td>
-                                        <td><?= $office->has('city') ? $this->Html->link($office->city->name, ['controller' => 'Cities', 'action' => 'view', $office->city->id]) : '' ?></td>
-                                        <td><?= $this->Number->format($office->status) ?></td>
-                                        <td><?= h($office->created_at) ?></td>
-                                        <td><?= h($office->updated_at) ?></td>
-                                        <td><?= $this->Number->format($office->company_id) ?></td>
+                                        <td><?= $this->Number->format($company->id) ?></td>
+                                        <td><?= h($company->name) ?></td>
+                                        <td><?= h($company->unique_link) ?></td>
+                                        <td><?= $company->has('city') ? $this->Html->link($company->city->name, ['controller' => 'Cities', 'action' => 'view', $company->city->id]) : '' ?></td>
+                                        <td><?= $this->Number->format($company->status) ?></td>
+                                        <td><?= h($company->image_link) ?></td>
+                                        <td><?= h($company->created_at) ?></td>
+                                        <td><?= h($company->updated_at) ?></td>
                                         <td class="actions">
-                                <?= $this->Html->link("<i class='material-icons'>link</i>", ['action' => 'view', $office->id],['escape'=>false]) ?>
-                                <?= $this->Html->link( "<i class='material-icons'>edit</i>", ['action' => 'edit', $office->id],['escape'=>false]) ?>
-                                <?= $this->Form->postLink( "<i class='material-icons'>delete</i>", ['action' => 'delete', $office->id], ['confirm' => __('Are you sure you want to delete # {0}?', $office->id),'escape'=>false]) ?>
+                                <?= $this->Html->link("<i class='material-icons'>link</i>", ['action' => 'view', $company->id],['escape'=>false]) ?>
+                                <?= $this->Html->link( "<i class='material-icons'>edit</i>", ['action' => 'edit', $company->id],['escape'=>false]) ?>
+                                <?= $this->Form->postLink( "<i class='material-icons'>delete</i>", ['action' => 'delete', $company->id], ['confirm' => __('Are you sure you want to delete # {0}?', $company->id),'escape'=>false]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>

@@ -63,7 +63,7 @@ class AppController extends Controller
             'authError' => 'Did you really think you are allowed to see that?',
             'authenticate' => [
                 'Form',
-                'Basic'
+//                'Basic'
             ],
             'storage' => 'Session'
         ]);
@@ -77,19 +77,11 @@ class AppController extends Controller
      */
     public function beforeRender(Event $event)
     {
-        $this->Auth->allow();
-        $this->Auth->config('authorize', ['Controller']);
-        $this->Auth->config('authenticate', [
-            'Form'
-        ]);
-        $this->Auth->config('loginRedirect',[
-            'controller' => 'Users',
-            'action' => 'index'
-        ]);
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {
             $this->set('_serialize', true);
         }
+        $this->set('loggedinuser',$this->Auth->user());
     }
 }

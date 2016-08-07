@@ -9,12 +9,18 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
+ * @property \Cake\ORM\Association\BelongsTo $Companies
  * @property \Cake\ORM\Association\BelongsTo $Cities
  * @property \Cake\ORM\Association\BelongsTo $Offices
  * @property \Cake\ORM\Association\BelongsTo $Departments
  * @property \Cake\ORM\Association\BelongsTo $Designations
  * @property \Cake\ORM\Association\BelongsTo $ReportingUsers
+ * @property \Cake\ORM\Association\HasMany $Attendances
+ * @property \Cake\ORM\Association\HasMany $Events
+ * @property \Cake\ORM\Association\HasMany $Inventories
  * @property \Cake\ORM\Association\HasMany $Leaves
+ * @property \Cake\ORM\Association\HasMany $Notifications
+ * @property \Cake\ORM\Association\HasMany $Policies
  *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
  * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
@@ -41,6 +47,9 @@ class UsersTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
 
+        $this->belongsTo('Companies', [
+            'foreignKey' => 'company_id'
+        ]);
         $this->belongsTo('Cities', [
             'foreignKey' => 'city_id'
         ]);
@@ -57,7 +66,22 @@ class UsersTable extends Table
             'className'=>'Users',
             'foreignKey' => 'reporting_user_id'
         ]);
+        $this->hasMany('Attendances', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('Events', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('Inventories', [
+            'foreignKey' => 'user_id'
+        ]);
         $this->hasMany('Leaves', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('Notifications', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('Policies', [
             'foreignKey' => 'user_id'
         ]);
     }
@@ -91,7 +115,6 @@ class UsersTable extends Table
             ->allowEmpty('last_name');
 
         $validator
-            ->integer('mobile')
             ->allowEmpty('mobile');
 
         $validator
@@ -131,6 +154,7 @@ class UsersTable extends Table
         $rules->add($rules->isUnique(['username']));
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->isUnique(['id']));
+        $rules->add($rules->existsIn(['company_id'], 'Companies'));
         $rules->add($rules->existsIn(['city_id'], 'Cities'));
         $rules->add($rules->existsIn(['office_id'], 'Offices'));
         $rules->add($rules->existsIn(['department_id'], 'Departments'));

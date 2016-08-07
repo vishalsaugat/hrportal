@@ -1,6 +1,6 @@
 <?php
 namespace App\Model\Entity;
-use Cake\Auth\DefaultPasswordHasher; //include this line
+
 use Cake\ORM\Entity;
 
 /**
@@ -12,10 +12,11 @@ use Cake\ORM\Entity;
  * @property string $first_name
  * @property string $middle_name
  * @property string $last_name
- * @property int $mobile
+ * @property string $mobile
  * @property string $email
  * @property string $address
  * @property string $blood_group
+ * @property int $company_id
  * @property int $city_id
  * @property int $office_id
  * @property int $department_id
@@ -29,7 +30,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Office $office
  * @property \App\Model\Entity\Department $department
  * @property \App\Model\Entity\Designation $designation
- * @property \App\Model\Entity\ReportingUser $reporting_user
+ * @property \App\Model\Entity\User $reporting_user
  * @property \App\Model\Entity\Leave[] $leaves
  */
 class User extends Entity
@@ -57,10 +58,4 @@ class User extends Entity
     protected $_hidden = [
         'password'
     ];
-
-    protected function _setPassword($value)
-    {
-        $hasher = new DefaultPasswordHasher();
-        return $hasher->hash($value);
-    }
 }

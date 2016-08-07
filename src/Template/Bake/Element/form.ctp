@@ -32,8 +32,10 @@ if (isset($modelObject) && $modelObject->behaviors()->has('Tree')) {
     <div class="mdl-grid">
         <?php
 <%
+        $notallowed = array('created_at','updated_at');
+//        $notallowed[] = $primaryKey;
         foreach ($fields as $field) {
-            if (in_array($field, $primaryKey)) {
+            if (in_array($field, array_merge($primaryKey,$notallowed))) {
                 continue;
             }
             if (isset($keyFields[$field])) {

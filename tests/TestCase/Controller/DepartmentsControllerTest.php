@@ -18,8 +18,14 @@ class DepartmentsControllerTest extends IntegrationTestCase
     public $fixtures = [
         'app.departments',
         'app.users',
+        'app.companies',
         'app.cities',
         'app.offices',
+        'app.attendances',
+        'app.events',
+        'app.inventories',
+        'app.notifications',
+        'app.policies',
         'app.designations',
         'app.leaves'
     ];

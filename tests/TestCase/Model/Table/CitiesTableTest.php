@@ -25,11 +25,17 @@ class CitiesTableTest extends TestCase
      */
     public $fixtures = [
         'app.cities',
+        'app.companies',
+        'app.attendances',
+        'app.events',
+        'app.inventories',
+        'app.notifications',
         'app.offices',
         'app.users',
         'app.departments',
         'app.designations',
-        'app.leaves'
+        'app.leaves',
+        'app.policies'
     ];
 
     /**

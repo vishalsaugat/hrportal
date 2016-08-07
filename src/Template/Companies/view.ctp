@@ -22,7 +22,7 @@ $this->Paginator->templates($myTemplates);
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
             <!-- Title -->
-            <span class="mdl-layout-title">User</span>
+            <span class="mdl-layout-title">Company</span>
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
@@ -59,116 +59,66 @@ $this->Paginator->templates($myTemplates);
         </header>
         <nav class="mdl-navigation">
             <?= $this->Html->link(__('Dashboard'), ['controller'=>'users','action' => 'dashboard'],['class'=>'mdl-navigation__link']) ?>
-            <?= $this->Html->link(__(' List Users'), ['action' => 'index'],['class'=>'mdl-navigation__link']) ?>
-            <?= $this->Html->link(__(' Add Users'), ['action' => 'add'],['class'=>'mdl-navigation__link']) ?>
-                        <?= $this->Html->link(__('List Companies'), ['controller' => 'Companies', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
-        <?= $this->Html->link(__('New Company'), ['controller' => 'Companies', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
+            <?= $this->Html->link(__(' List Companies'), ['action' => 'index'],['class'=>'mdl-navigation__link']) ?>
+            <?= $this->Html->link(__(' Add Companies'), ['action' => 'add'],['class'=>'mdl-navigation__link']) ?>
                         <?= $this->Html->link(__('List Cities'), ['controller' => 'Cities', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
         <?= $this->Html->link(__('New City'), ['controller' => 'Cities', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
-                        <?= $this->Html->link(__('List Offices'), ['controller' => 'Offices', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
-        <?= $this->Html->link(__('New Office'), ['controller' => 'Offices', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
-                        <?= $this->Html->link(__('List Departments'), ['controller' => 'Departments', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
-        <?= $this->Html->link(__('New Department'), ['controller' => 'Departments', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
-                        <?= $this->Html->link(__('List Designations'), ['controller' => 'Designations', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
-        <?= $this->Html->link(__('New Designation'), ['controller' => 'Designations', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
                         <?= $this->Html->link(__('List Attendances'), ['controller' => 'Attendances', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
         <?= $this->Html->link(__('New Attendance'), ['controller' => 'Attendances', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
                         <?= $this->Html->link(__('List Events'), ['controller' => 'Events', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
         <?= $this->Html->link(__('New Event'), ['controller' => 'Events', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
                         <?= $this->Html->link(__('List Inventories'), ['controller' => 'Inventories', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
         <?= $this->Html->link(__('New Inventory'), ['controller' => 'Inventories', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
-                        <?= $this->Html->link(__('List Leaves'), ['controller' => 'Leaves', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
-        <?= $this->Html->link(__('New Leave'), ['controller' => 'Leaves', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
                         <?= $this->Html->link(__('List Notifications'), ['controller' => 'Notifications', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
         <?= $this->Html->link(__('New Notification'), ['controller' => 'Notifications', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
+                        <?= $this->Html->link(__('List Offices'), ['controller' => 'Offices', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
+        <?= $this->Html->link(__('New Office'), ['controller' => 'Offices', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
                         <?= $this->Html->link(__('List Policies'), ['controller' => 'Policies', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
         <?= $this->Html->link(__('New Policy'), ['controller' => 'Policies', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
+                        <?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index'],['class'=>'mdl-navigation__link']); ?>
+        <?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add'],['class'=>'mdl-navigation__link']) ?>
                     </nav>
     </div>
     <main class="mdl-layout__content">
         <?= $this->Flash->render() ?>
-<div class="users view large-9 medium-8 columns content">
+<div class="companies view large-9 medium-8 columns content">
     <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp direct">
         <tr>
-            <td class="field-name"><?= __('Password') ?></td>
-            <td><?= h($user->password) ?></td>
+            <td class="field-name"><?= __('Name') ?></td>
+            <td><?= h($company->name) ?></td>
         </tr>
         <tr>
-            <td class="field-name"><?= __('Username') ?></td>
-            <td><?= h($user->username) ?></td>
-        </tr>
-        <tr>
-            <td class="field-name"><?= __('First Name') ?></td>
-            <td><?= h($user->first_name) ?></td>
-        </tr>
-        <tr>
-            <td class="field-name"><?= __('Middle Name') ?></td>
-            <td><?= h($user->middle_name) ?></td>
-        </tr>
-        <tr>
-            <td class="field-name"><?= __('Last Name') ?></td>
-            <td><?= h($user->last_name) ?></td>
-        </tr>
-        <tr>
-            <td class="field-name"><?= __('Mobile') ?></td>
-            <td><?= h($user->mobile) ?></td>
-        </tr>
-        <tr>
-            <td class="field-name"><?= __('Email') ?></td>
-            <td><?= h($user->email) ?></td>
-        </tr>
-        <tr>
-            <td class="field-name"><?= __('Address') ?></td>
-            <td><?= h($user->address) ?></td>
-        </tr>
-        <tr>
-            <td class="field-name"><?= __('Blood Group') ?></td>
-            <td><?= h($user->blood_group) ?></td>
-        </tr>
-        <tr>
-            <td class="field-name"><?= __('Company') ?></td>
-            <td><?= $user->has('company') ? $this->Html->link($user->company->name, ['controller' => 'Companies', 'action' => 'view', $user->company->id]) : '' ?></td>
+            <td class="field-name"><?= __('Unique Link') ?></td>
+            <td><?= h($company->unique_link) ?></td>
         </tr>
         <tr>
             <td class="field-name"><?= __('City') ?></td>
-            <td><?= $user->has('city') ? $this->Html->link($user->city->name, ['controller' => 'Cities', 'action' => 'view', $user->city->id]) : '' ?></td>
+            <td><?= $company->has('city') ? $this->Html->link($company->city->name, ['controller' => 'Cities', 'action' => 'view', $company->city->id]) : '' ?></td>
         </tr>
         <tr>
-            <td class="field-name"><?= __('Office') ?></td>
-            <td><?= $user->has('office') ? $this->Html->link($user->office->name, ['controller' => 'Offices', 'action' => 'view', $user->office->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <td class="field-name"><?= __('Department') ?></td>
-            <td><?= $user->has('department') ? $this->Html->link($user->department->name, ['controller' => 'Departments', 'action' => 'view', $user->department->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <td class="field-name"><?= __('Designation') ?></td>
-            <td><?= $user->has('designation') ? $this->Html->link($user->designation->name, ['controller' => 'Designations', 'action' => 'view', $user->designation->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <td class="field-name"><?= __('Reporting User') ?></td>
-            <td><?= $user->has('reporting_user') ? $this->Html->link($user->reporting_user->id, ['controller' => 'Users', 'action' => 'view', $user->reporting_user->id]) : '' ?></td>
+            <td class="field-name"><?= __('Image Link') ?></td>
+            <td><?= h($company->image_link) ?></td>
         </tr>
         <tr>
             <td  class="field-name"><?= __('Id') ?></td>
-            <td><?= $this->Number->format($user->id) ?></td>
+            <td><?= $this->Number->format($company->id) ?></td>
         </tr>
         <tr>
             <td  class="field-name"><?= __('Status') ?></td>
-            <td><?= $this->Number->format($user->status) ?></td>
+            <td><?= $this->Number->format($company->status) ?></td>
         </tr>
         <tr>
             <th><?= __('Created At') ?></th>
-            <td><?= h($user->created_at) ?></td>
+            <td><?= h($company->created_at) ?></td>
         </tr>
         <tr>
             <th><?= __('Updated At') ?></th>
-            <td><?= h($user->updated_at) ?></td>
+            <td><?= h($company->updated_at) ?></td>
         </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Attendances') ?></h4>
-        <?php if (!empty($user->attendances)): ?>
+        <?php if (!empty($company->attendances)): ?>
         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
             <tr>
                 <th><?= __('Id') ?></th>
@@ -182,7 +132,7 @@ $this->Paginator->templates($myTemplates);
                 <th><?= __('Company Id') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($user->attendances as $attendances): ?>
+            <?php foreach ($company->attendances as $attendances): ?>
             <tr>
                 <td><?= h($attendances->id) ?></td>
                 <td><?= h($attendances->in_time) ?></td>
@@ -205,7 +155,7 @@ $this->Paginator->templates($myTemplates);
     </div>
     <div class="related">
         <h4><?= __('Related Events') ?></h4>
-        <?php if (!empty($user->events)): ?>
+        <?php if (!empty($company->events)): ?>
         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
             <tr>
                 <th><?= __('Id') ?></th>
@@ -220,7 +170,7 @@ $this->Paginator->templates($myTemplates);
                 <th><?= __('Date') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($user->events as $events): ?>
+            <?php foreach ($company->events as $events): ?>
             <tr>
                 <td><?= h($events->id) ?></td>
                 <td><?= h($events->name) ?></td>
@@ -244,7 +194,7 @@ $this->Paginator->templates($myTemplates);
     </div>
     <div class="related">
         <h4><?= __('Related Inventories') ?></h4>
-        <?php if (!empty($user->inventories)): ?>
+        <?php if (!empty($company->inventories)): ?>
         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
             <tr>
                 <th><?= __('Id') ?></th>
@@ -258,7 +208,7 @@ $this->Paginator->templates($myTemplates);
                 <th><?= __('User Id') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($user->inventories as $inventories): ?>
+            <?php foreach ($company->inventories as $inventories): ?>
             <tr>
                 <td><?= h($inventories->id) ?></td>
                 <td><?= h($inventories->name) ?></td>
@@ -280,47 +230,8 @@ $this->Paginator->templates($myTemplates);
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Leaves') ?></h4>
-        <?php if (!empty($user->leaves)): ?>
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-            <tr>
-                <th><?= __('Id') ?></th>
-                <th><?= __('User Id') ?></th>
-                <th><?= __('Leave Type Id') ?></th>
-                <th><?= __('From Date') ?></th>
-                <th><?= __('To Date') ?></th>
-                <th><?= __('Approval Status') ?></th>
-                <th><?= __('Approval User Id') ?></th>
-                <th><?= __('Status') ?></th>
-                <th><?= __('Created At') ?></th>
-                <th><?= __('Updated At') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($user->leaves as $leaves): ?>
-            <tr>
-                <td><?= h($leaves->id) ?></td>
-                <td><?= h($leaves->user_id) ?></td>
-                <td><?= h($leaves->leave_type_id) ?></td>
-                <td><?= h($leaves->from_date) ?></td>
-                <td><?= h($leaves->to_date) ?></td>
-                <td><?= h($leaves->approval_status) ?></td>
-                <td><?= h($leaves->approval_user_id) ?></td>
-                <td><?= h($leaves->status) ?></td>
-                <td><?= h($leaves->created_at) ?></td>
-                <td><?= h($leaves->updated_at) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Leaves', 'action' => 'view', $leaves->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Leaves', 'action' => 'edit', $leaves->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Leaves', 'action' => 'delete', $leaves->id], ['confirm' => __('Are you sure you want to delete # {0}?', $leaves->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
         <h4><?= __('Related Notifications') ?></h4>
-        <?php if (!empty($user->notifications)): ?>
+        <?php if (!empty($company->notifications)): ?>
         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
             <tr>
                 <th><?= __('Id') ?></th>
@@ -333,7 +244,7 @@ $this->Paginator->templates($myTemplates);
                 <th><?= __('Company Id') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($user->notifications as $notifications): ?>
+            <?php foreach ($company->notifications as $notifications): ?>
             <tr>
                 <td><?= h($notifications->id) ?></td>
                 <td><?= h($notifications->subject) ?></td>
@@ -354,8 +265,41 @@ $this->Paginator->templates($myTemplates);
         <?php endif; ?>
     </div>
     <div class="related">
+        <h4><?= __('Related Offices') ?></h4>
+        <?php if (!empty($company->offices)): ?>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <tr>
+                <th><?= __('Id') ?></th>
+                <th><?= __('Name') ?></th>
+                <th><?= __('City Id') ?></th>
+                <th><?= __('Status') ?></th>
+                <th><?= __('Created At') ?></th>
+                <th><?= __('Updated At') ?></th>
+                <th><?= __('Company Id') ?></th>
+                <th class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($company->offices as $offices): ?>
+            <tr>
+                <td><?= h($offices->id) ?></td>
+                <td><?= h($offices->name) ?></td>
+                <td><?= h($offices->city_id) ?></td>
+                <td><?= h($offices->status) ?></td>
+                <td><?= h($offices->created_at) ?></td>
+                <td><?= h($offices->updated_at) ?></td>
+                <td><?= h($offices->company_id) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Offices', 'action' => 'view', $offices->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Offices', 'action' => 'edit', $offices->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Offices', 'action' => 'delete', $offices->id], ['confirm' => __('Are you sure you want to delete # {0}?', $offices->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+    <div class="related">
         <h4><?= __('Related Policies') ?></h4>
-        <?php if (!empty($user->policies)): ?>
+        <?php if (!empty($company->policies)): ?>
         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
             <tr>
                 <th><?= __('Id') ?></th>
@@ -369,7 +313,7 @@ $this->Paginator->templates($myTemplates);
                 <th><?= __('Status') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($user->policies as $policies): ?>
+            <?php foreach ($company->policies as $policies): ?>
             <tr>
                 <td><?= h($policies->id) ?></td>
                 <td><?= h($policies->name) ?></td>
@@ -384,6 +328,61 @@ $this->Paginator->templates($myTemplates);
                     <?= $this->Html->link(__('View'), ['controller' => 'Policies', 'action' => 'view', $policies->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Policies', 'action' => 'edit', $policies->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Policies', 'action' => 'delete', $policies->id], ['confirm' => __('Are you sure you want to delete # {0}?', $policies->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+    <div class="related">
+        <h4><?= __('Related Users') ?></h4>
+        <?php if (!empty($company->users)): ?>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <tr>
+                <th><?= __('Id') ?></th>
+                <th><?= __('Username') ?></th>
+                <th><?= __('First Name') ?></th>
+                <th><?= __('Middle Name') ?></th>
+                <th><?= __('Last Name') ?></th>
+                <th><?= __('Mobile') ?></th>
+                <th><?= __('Email') ?></th>
+                <th><?= __('Address') ?></th>
+                <th><?= __('Blood Group') ?></th>
+                <th><?= __('Company Id') ?></th>
+                <th><?= __('City Id') ?></th>
+                <th><?= __('Office Id') ?></th>
+                <th><?= __('Department Id') ?></th>
+                <th><?= __('Designation Id') ?></th>
+                <th><?= __('Reporting User Id') ?></th>
+                <th><?= __('Created At') ?></th>
+                <th><?= __('Updated At') ?></th>
+                <th><?= __('Status') ?></th>
+                <th class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($company->users as $users): ?>
+            <tr>
+                <td><?= h($users->id) ?></td>
+                <td><?= h($users->username) ?></td>
+                <td><?= h($users->first_name) ?></td>
+                <td><?= h($users->middle_name) ?></td>
+                <td><?= h($users->last_name) ?></td>
+                <td><?= h($users->mobile) ?></td>
+                <td><?= h($users->email) ?></td>
+                <td><?= h($users->address) ?></td>
+                <td><?= h($users->blood_group) ?></td>
+                <td><?= h($users->company_id) ?></td>
+                <td><?= h($users->city_id) ?></td>
+                <td><?= h($users->office_id) ?></td>
+                <td><?= h($users->department_id) ?></td>
+                <td><?= h($users->designation_id) ?></td>
+                <td><?= h($users->reporting_user_id) ?></td>
+                <td><?= h($users->created_at) ?></td>
+                <td><?= h($users->updated_at) ?></td>
+                <td><?= h($users->status) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Users', 'action' => 'view', $users->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Users', 'action' => 'edit', $users->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Users', 'action' => 'delete', $users->id], ['confirm' => __('Are you sure you want to delete # {0}?', $users->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

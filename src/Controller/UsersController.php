@@ -25,8 +25,8 @@ class UsersController extends AppController
     public function index($id=null)
     {
         $this->paginate = [
-            'contain' => ['Cities', 'Offices', 'Departments', 'Designations','ReportingUsers'],
-            'limit' =>2
+            'contain' => ['Cities', 'Offices', 'Departments', 'Designations','ReportingUsers','Companies'],
+//            'limit' =>2
         ];
         $users = $this->paginate($this->Users);
         $getparams = $this->request->query;
@@ -75,8 +75,9 @@ class UsersController extends AppController
         $offices = $this->Users->Offices->find('list', ['limit' => 200]);
         $departments = $this->Users->Departments->find('list', ['limit' => 200]);
         $designations = $this->Users->Designations->find('list', ['limit' => 200]);
+        $companies = $this->Users->Companies->find('list', ['limit' => 200]);
         $reportingUsers = $this->Users->ReportingUsers->find('list', ['limit' => 200,'keyField'=>'id','valueField'=>'username']);
-        $this->set(compact('user', 'cities', 'offices', 'departments', 'designations', 'reportingUsers'));
+        $this->set(compact('user', 'cities', 'offices', 'departments', 'designations', 'reportingUsers','companies'));
         $this->set('_serialize', ['user']);
     }
 
@@ -106,8 +107,9 @@ class UsersController extends AppController
         $offices = $this->Users->Offices->find('list', ['limit' => 200]);
         $departments = $this->Users->Departments->find('list', ['limit' => 200]);
         $designations = $this->Users->Designations->find('list', ['limit' => 200]);
+        $companies = $this->Users->Companies->find('list', ['limit' => 200]);
         $reportingUsers = $this->Users->find('list', ['limit' => 200,'keyField'=>'id','valueField'=>'username']);
-        $this->set(compact('user', 'cities', 'offices', 'departments', 'designations', 'reportingUsers'));
+        $this->set(compact('user', 'cities', 'offices', 'departments', 'designations', 'reportingUsers','companies'));
         $this->set('_serialize', ['user']);
     }
 
@@ -142,7 +144,6 @@ class UsersController extends AppController
             $this->Flash->error('Your username or password is incorrect.');
         }
         if ($this->Auth->user()){
-            pr($this->Auth->user());
             return $this->redirect($this->Auth->redirectUrl());
         }
         $this->viewBuilder()->layout('blank');
@@ -151,5 +152,13 @@ class UsersController extends AppController
     public function logout()
     {
         return $this->redirect($this->Auth->logout());
+    }
+
+    public function dashboard()
+    {
+        $user = $this->Users->get($this->Auth->user('id'), [
+            'contain' => ['Cities', 'Offices', 'Departments', 'Designations', 'ReportingUsers', 'Leaves']
+        ]);
+        $this->set(compact('user'));
     }
 }
