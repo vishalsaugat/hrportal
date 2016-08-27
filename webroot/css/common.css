@@ -83,16 +83,8 @@ a{
     background-color: #E64A19;
     color: white;
 }
-
-.mdl-layout__header-dashboard{
-    background-color: #263238 !important;
-}
-
-.mdl-tabs__tab-bar-vertical{
-    background-color: #e0e0e0;
-}
 .mdl-tabs__tab-bar-vertical .mdl-tabs__tab{
-    height: 65px;
+    height: 80px;
     width: 100%;
     padding: 10px 0;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -100,8 +92,12 @@ a{
 }
 .mdl-tabs__tab-bar-vertical .mdl-tabs__tab:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    z-index:1;
 }
 .mdl-tabs__tab-bar-vertical .mdl-tabs__tab.is-active:after {
+    background: transparent !important;
+}
+.mdl-tabs__tab-bar-vertical .mdl-tabs__tab.is-active:before {
     background: transparent !important;
 }
 .mdl-tabs__tab-bar-vertical .mdl-tabs__tab.is-active {
@@ -121,4 +117,32 @@ a{
 }
 .mdl-cell--11-col-modified{
     width: 93.5%;
+}
+.card-width-100{
+    width: 100% !important;
+}
+.calendar-card{
+    min-height: 300px;
+}
+.notifications-card{
+    /*background-color: #00a6fc !important;*/
+}
+.padding-bottom-16{
+    padding-bottom: 16px;
+}
+.padding-top-16{
+    padding-top: 16px;
+}
+.mdl-grid--calendar{
+    height: 100%;
+    width:100%;
+}
+.mdl-button--round{
+    border-radius: 25px !important;
+}
+.mdl-button--round .mdl-button__ripple-container{
+    border-radius: 25px !important;
+}
+.mdl-typography--font-italic{
+    font-style: italic;
 }

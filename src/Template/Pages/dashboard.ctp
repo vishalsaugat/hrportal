@@ -18,7 +18,7 @@ $myTemplates = [
 $this->Paginator->templates($myTemplates);
 ?>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
- <header class="mdl-layout__header mdl-layout__header-dashboard">
+ <header class="mdl-layout__header mdl-layout__header-dashboard mdl-color--blue-grey-900">
      <div class="mdl-layout-icon"><i class="material-icons">more_vert</i></div>
   <div class="mdl-layout__header-row">
    <!-- Title -->
@@ -42,7 +42,7 @@ $this->Paginator->templates($myTemplates);
  </header>
  <div class="mdl-layout__drawer1"style="display: none">
      <header class="demo-drawer-header">
-         <img src="https://getmdl.io/templates/dashboard/images/user.jpg" class="demo-avatar">
+<!--         <img src="https://getmdl.io/templates/dashboard/images/user.jpg" class="demo-avatar">-->
          <div class="demo-avatar-dropdown">
              <span><?= $loggedinuser['email']?></span>
              <div class="mdl-layout-spacer"></div>
@@ -76,59 +76,115 @@ $this->Paginator->templates($myTemplates);
     <main class="mdl-layout__content">
         <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
             <div class="mdl-grid--no-spacing mdl-grid">
-                <div class="mdl-cell-modified mdl-cell--1-col-modified mdl-cell--1-col-tablet">
-                  <div class="mdl-tabs__tab-bar-vertical">
+                <div class="mdl-cell--hide-phone mdl-cell--1-col-modified mdl-cell--1-col-tablet">
+                  <div class="mdl-tabs__tab-bar-vertical mdl-color--grey-300">
                       <div class="mdl-grid--no-spacing mdl-grid">
-                          <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
-                            <a href="#starks-panel" class="mdl-tabs__tab is-active"><i class="material-icons">dashboard</i><div class="mdl-typography--caption">Dashboard</div></a>
-
-                          </div>
+<!--                          <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">-->
+                            <a href="#dashboard-panel" class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-tabs__tab is-active">
+                                <i class="material-icons">dashboard</i><div class="mdl-typography--caption">Dashboard</div>
+                            </a>
+<!--                          </div>
                       </div>
                       <div class="mdl-grid--no-spacing mdl-grid">
-                          <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
-                        <a href="#lannisters-panel" class="mdl-tabs__tab"><i class="material-icons">find_in_page</i><div class="mdl-typography--caption">Directory</div></a>
-                              </div>
+                          <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">-->
+                        <a href="#directory-panel" class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-tabs__tab"><i class="material-icons">find_in_page</i><div class="mdl-typography--caption">Directory</div></a>
+<!--                              </div>
                       </div>
                       <div class="mdl-grid--no-spacing mdl-grid">
-                          <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
-                        <a href="#targaryens-panel" class="mdl-tabs__tab"><i class="material-icons">assignment</i><div class="mdl-typography--caption">Reimbursment</div></a>
-                              </div>
+                          <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">-->
+                        <a href="#reimbursment-panel" class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-tabs__tab"><i class="material-icons">assignment</i><div class="mdl-typography--caption">Reimbursment</div></a>
+<!--                              </div>
                       </div>
                       <div class="mdl-grid--no-spacing mdl-grid">
-                          <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
-                              <a href="#targaryens-panel" class="mdl-tabs__tab"><i class="material-icons">attach_money</i><div class="mdl-typography--caption">Pay Slips</div></a>
-                          </div>
+                         <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">-->
+                              <a href="#payslip-panel" class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-tabs__tab"><i class="material-icons">attach_money</i><div class="mdl-typography--caption">Pay Slips</div></a>
+<!--                          </div>
                       </div>
                       <div class="mdl-grid--no-spacing mdl-grid">
-                          <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
-                              <a href="#targaryens-panel" class="mdl-tabs__tab"><i class="material-icons">description</i><div class="mdl-typography--caption">Declaration</div></a>
-                          </div>
+                          <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">-->
+                              <a href="#declaration-panel" class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-tabs__tab"><i class="material-icons">description</i><div class="mdl-typography--caption">Declaration</div></a>
+<!--                          </div>
                       </div>
                       <div class="mdl-grid--no-spacing mdl-grid">
-                          <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
-                              <a href="#targaryens-panel" class="mdl-tabs__tab"><i class="material-icons">people</i><div class="mdl-typography--caption">HR Policy</div></a>
-                          </div>
+                        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">-->
+                              <a href="#hrpolicy-panel" class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-tabs__tab"><i class="material-icons">people</i><div class="mdl-typography--caption">HR Policy</div></a>
+<!--                          </div>
                       </div>
                       <div class="mdl-grid--no-spacing mdl-grid">
-                          <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
-                              <a href="#targaryens-panel" class="mdl-tabs__tab"><i class="material-icons">motorcycle</i><div class="mdl-typography--caption">Leaves</div></a>
-                          </div>
+                        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">-->
+                              <a href="#leaves-panel" class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-tabs__tab"><i class="material-icons">motorcycle</i><div class="mdl-typography--caption">Leaves</div></a>
+<!--                          </div>-->
                       </div>
                   </div>
                 </div>
-                <div class="mdl-cell-modified mdl-cell--11-col-modified mdl-cell--11-col-tablet">
-                    <div class="mdl-tabs__panel is-active" id="starks-panel">
-                        <ul>
-                            <li>Eddard</li>
-                            <li>Catelyn</li>
-                            <li>Robb</li>
-                            <li>Sansa</li>
-                            <li>Brandon</li>
-                            <li>Arya</li>
-                            <li>Rickon</li>
-                        </ul>
+                <div class="mdl-cell--11-col-modified mdl-cell--8-col-phone mdl-cell--7-col-tablet">
+                    <div class="mdl-tabs__panel is-active" id="dashboard-panel">
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--7-col-desktop mdl-cell--8-col-tablet">
+                                <div class="mdl-card mdl-shadow--2dp calendar-card card-width-100">
+                                    <div class="mdl-grid mdl-grid--no-spacing mdl-grid--calendar">
+                                        <div class="mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-color--pink-300">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--12-col">
+                                                    <div class="mdl-typography--display-4 mdl-typography--text-center mdl-color-text--white mdl-typography--font-bold">4</div>
+                                                    <div class="mdl-typography--text-center mdl-typography--title mdl-color-text--white">THURSDAY</div>
+                                                </div>
+                                            </div>
+                                            <div class="mdl-grid">
+                                                <div class="mdl-layout-spacer"></div>
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--round mdl-js-ripple-effect mdl-color--white mdl-color-text--pink-300 mdl-typography--font-bold">
+                                                        Mark Attendance
+                                                    </button>
+                                                <div class="mdl-layout-spacer"></div>
+                                            </div>
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--12-col">
+                                                    <div class="mdl-color-text--white mdl-typography--font-bold">Current Event</div>
+                                                    <ul class="mdl-color-text--white mdl-typography--font-italic">
+                                                        <li>John Doe's Birthday</li>
+                                                        <li>Kevin Nash's Birthday</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--12-col">
+                                                    <div class="mdl-typography--title mdl-color-text--grey-400 mdl-typography--font-bold mdl-typography--text-right">2016</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--8-col-tablet">
+                                <div class="mdl-grid--no-spacing mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet padding-bottom-16">
+                                        <div class="mdl-card mdl-shadow--2dp mdl-color--light-blue-400 notifications-card card-width-100">
+                                            <div class="mdl-card__title">
+                                                <h2 class="mdl-card__title-text mdl-color-text--white">Notifications</h2>
+                                            </div>
+                                            <div class="mdl-card__media">
+        <!--                                        <img src="photo.jpg" width="220" height="140" border="0" alt="" style="padding:20px;">-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mdl-layout-spacer"></div>
+                                    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
+                                        <div class="mdl-card mdl-shadow--2dp teammembers-card card-width-100">
+                                            <div class="mdl-card__title">
+                                                <h2 class="mdl-card__title-text mdl-color-text--blue-grey-500">Team Members</h2>
+                                            </div>
+                                            <div class="mdl-card__media">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mdl-tabs__panel" id="lannisters-panel">
+                    <div class="mdl-tabs__panel" id="directory-panel">
                         <ul>
                             <li>Tywin</li>
                             <li>Cersei</li>
@@ -136,10 +192,43 @@ $this->Paginator->templates($myTemplates);
                             <li>Tyrion</li>
                         </ul>
                     </div>
-                    <div class="mdl-tabs__panel" id="targaryens-panel">
+                    <div class="mdl-tabs__panel" id="reimbursment-panel">
                         <ul>
-                            <li>Viserys</li>
+                            <li>Reimmbursment</li>
                             <li>Daenerys</li>
+                        </ul>
+                    </div>
+
+                    <div class="mdl-tabs__panel" id="payslip-panel">
+                        <ul>
+                            <li>Pay Slips</li>
+                            <li>Cersei</li>
+                            <li>Jamie</li>
+                            <li>Tyrion</li>
+                        </ul>
+                    </div>
+                    <div class="mdl-tabs__panel" id="declaration-panel">
+                        <ul>
+                            <li>IT Declaration</li>
+                            <li>Cersei</li>
+                            <li>Jamie</li>
+                            <li>Tyrion</li>
+                        </ul>
+                    </div>
+                    <div class="mdl-tabs__panel" id="hrpolicy-panel">
+                        <ul>
+                            <li>HR Policy</li>
+                            <li>Cersei</li>
+                            <li>Jamie</li>
+                            <li>Tyrion</li>
+                        </ul>
+                    </div>
+                    <div class="mdl-tabs__panel" id="leaves-panel">
+                        <ul>
+                            <li>HR Policy</li>
+                            <li>Cersei</li>
+                            <li>Jamie</li>
+                            <li>Tyrion</li>
                         </ul>
                     </div>
                 </div>
