@@ -1,7 +1,7 @@
-Phinx Documentation
+HRPORTAL Documentation
 ===================
 
-Phinx makes it ridiculously easy to manage the database migrations for your PHP app. In less than 5 minutes you can install Phinx using Composer and create your first database migration. Phinx is just about migrations without all the bloat of a database ORM system or application framework.
+Demo Project
 
 Contents
 ========
